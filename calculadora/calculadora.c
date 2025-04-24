@@ -1,12 +1,24 @@
 #include <stdio.h>
 
+void exibir_menu() {
+    printf("=====================================\n");
+    printf("     Calculadora Simples          \n");
+    printf("=====================================\n");
+    printf("Escolha uma operação: \n");
+    printf("1. Soma\n");
+    printf("2. Subtração\n");
+    printf("3. Multiplicação\n");
+    printf("4. Divisão\n");
+    printf("5. Sair\n");
+    printf("Opção:\n");
+}
+
 int main() {
     int opcao, N1, N2, resultado;
     char repetir = 's';
 
     while (repetir == 's' || repetir == 'S') {
-        printf("===============================\nCalculadora Simples\n===============================\n");
-        printf("Selecione uma operação:\n1. Adição\n2. Subtração\n3. Multiplicação\n4. Divisão\n5. Sair\nOpção: ");
+        exibir_menu();
         scanf("%d", &opcao);
 
         if (opcao == 5) {
