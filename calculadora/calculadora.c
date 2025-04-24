@@ -5,7 +5,7 @@ int main() {
     char repetir = 's';
 
     while (repetir == 's' || repetir == 'S') {
-        printf("=================\nCalculadora Simples\n==================\n");
+        printf("===============================\nCalculadora Simples\n===============================\n");
         printf("Selecione uma operação:\n1. Adição\n2. Subtração\n3. Multiplicação\n4. Divisão\n5. Sair\nOpção: ");
         scanf("%d", &opcao);
 
