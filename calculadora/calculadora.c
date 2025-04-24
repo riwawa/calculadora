@@ -2,7 +2,7 @@
 
 void exibir_menu() {
     printf("=====================================\n");
-    printf("     Calculadora Simples          \n");
+    printf("     CALCULADORA SIMPLES            \n");
     printf("=====================================\n");
     printf("Escolha uma operação: \n");
     printf("1. Soma\n");
@@ -10,66 +10,57 @@ void exibir_menu() {
     printf("3. Multiplicação\n");
     printf("4. Divisão\n");
     printf("5. Sair\n");
-    printf("Opção:\n");
+    printf("=====================================\n");
 }
 
 int main() {
-    int opcao, N1, N2, resultado;
-    char repetir = 's';
+    int opcao;
+    float num1, num2, resultado;
 
-    while (repetir == 's' || repetir == 'S') {
+    do {
         exibir_menu();
+        printf("Escolha uma opção: ");
         scanf("%d", &opcao);
 
-        if (opcao == 5) {
-            printf("Obrigado por usar a calculadora! Até a próxima!\n");
-            break;
+        if (opcao < 1 || opcao > 5) {
+            printf("Opção inválida! Tente novamente.\n");
+            continue; 
         }
 
-        if (opcao < 1 || opcao > 5) {
-            printf("Opção inválida! Insira novamente.\n");
-            continue;
+        if (opcao == 5) {
+            printf("Saindo... Até logo!\n");
+            break;  
         }
 
         printf("Digite o primeiro número: ");
-        scanf("%d", &N1);
+        scanf("%f", &num1);
         printf("Digite o segundo número: ");
-        scanf("%d", &N2);
+        scanf("%f", &num2);
 
-        switch (opcao) {
+        switch(opcao) {
             case 1:
-                resultado = N1 + N2;
-                printf("Resultado: %d + %d = %d\n", N1, N2, resultado);
+                resultado = num1 + num2;
+                printf("Resultado: %.2f\n", resultado);
                 break;
             case 2:
-                resultado = N1 - N2;
-                printf("Resultado: %d - %d = %d\n", N1, N2, resultado);
+                resultado = num1 - num2;
+                printf("Resultado: %.2f\n", resultado);
                 break;
             case 3:
-                resultado = N1 * N2;
-                printf("Resultado: %d * %d = %d\n", N1, N2, resultado);
+                resultado = num1 * num2;
+                printf("Resultado: %.2f\n", resultado);
                 break;
             case 4:
-                if (N2 != 0) {
-                    resultado = N1 / N2;
-                    printf("Resultado: %d / %d = %d\n", N1, N2, resultado);
+                if (num2 != 0) {
+                    resultado = num1 / num2;
+                    printf("Resultado: %.2f\n", resultado);
                 } else {
-                    printf("Erro: Divisão por zero não é permitida.\n");
+                    printf("Erro: Divisão por zero!\n");
                 }
                 break;
         }
 
-        while (getchar() != '\n');
-
-        do {
-            printf("Deseja realizar outra operação? (s/n): ");
-            scanf("%c", &repetir);
-            while (getchar() != '\n'); // Limpa novamente
-            if (repetir != 's' && repetir != 'n') {
-                printf("Resposta inválida. Por favor, digite 's' para sim ou 'n' para não.\n");
-            }
-        } while (repetir != 's' && repetir != 'n');
-    }
+    } while (opcao != 5);
 
     return 0;
 }
